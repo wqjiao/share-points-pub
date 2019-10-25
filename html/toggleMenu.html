@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: "Arial";
+            overflow-x: hidden;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        .c-header {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            background: #fefe;
+            padding: 0 1.25rem;
+            min-height: 60px;
+        }
+
+        .c-brand {
+            color: deeppink;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .c-nav {
+            margin-left: auto;
+        }
+
+        .c-nav ul {
+            display: flex;
+        }
+
+        @media (max-width: 480px) {
+            .c-nav ul {
+                display: block;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                opacity: 0;
+                transform: translateX(100%);
+                visibility: hidden;
+                background: #fefe;
+            }
+
+            .c-nav ul.is-active {
+                opacity: 1;
+                visibility: visible;
+                transform: translateX(0);
+                transition: 0.3s ease-out;
+            }
+        }
+
+        .c-nav__toggle {
+            display: none;
+        }
+
+        @media (max-width: 480px) {
+            .c-nav__toggle {
+                appearance: none;
+                position: absolute;
+                right: 1rem;
+                top: 1.25rem;
+                display: block;
+                border: 1px solid #000;
+                background: #fff;
+                border-radius: 0;
+                padding: 0.25rem;
+            }
+        }
+
+        .c-nav__item a {
+            display: block;
+            color: #000;
+            text-decoration: none;
+            padding: 1.25rem 1rem;
+            transition: 0.3s ease-out;
+        }
+
+        .c-nav__item a:hover {
+            background: deeppink;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="c-header">
+        <h1 class="c-brand">Brand</h1>
+        <nav class="c-nav">
+            <button class="c-nav__toggle">menu</button>
+            <ul>
+                <li class="c-nav__item"><a href="#">Home</a></li>
+                <li class="c-nav__item"><a href="#">About</a></li>
+                <li class="c-nav__item"><a href="#">Works</a></li>
+                <li class="c-nav__item"><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <script>
+        let menuToggle = document.querySelector(".c-nav__toggle");
+        let menu = document.querySelector(".c-nav ul");
+
+        menuToggle.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            if (menu.classList.contains("is-active")) {
+                menuToggle.innerHTML = "menu";
+                menu.style.opacity = "0";
+                menu.style.visibility = "hidden";
+                menu.style.transform = "translateX(100%)";
+
+                setTimeout(function () {
+                    menu.classList.remove("is-active");
+                    menu.style.opacity = "";
+                    menu.style.visibility = "";
+                    menu.style.transform = "";
+
+                }, 300);
+            } else {
+                menu.classList.add("is-active");
+                menuToggle.innerHTML = "close";
+            }
+        });
+    </script>
+</body>
+
+</html>
