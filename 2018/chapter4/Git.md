@@ -381,7 +381,21 @@ Git 有一个特殊指针HEAD， 总是指向当前分支的最近一次快照�
     `git reset HEAD filename`
     `git checkout . && git clean -xdf`
 
-## 十二、参考链接
+## 十二、git pull 撤销误操作
+
+* `git reflog` 查看历史变更记录
+
+```
+a1563bc (HEAD -> master, origin/master, origin/HEAD) HEAD@{0}: clone: from ***
+```
+
+* `git reset --hard HEAD@{n}` 回退：n 是需要回退到的引用位置
+
+```
+git reset --hard a1563bc
+```
+
+## 十三、参考链接
 
 * [阮一峰网站](http://www.ruanyifeng.com/blog/2018/10/git-internals.html)
 * [博客](https://www.jianshu.com/p/811b07b129e8)
