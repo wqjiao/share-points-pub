@@ -368,6 +368,8 @@ Git 有一个特殊指针HEAD， 总是指向当前分支的最近一次快照�
 	出现以下强制覆盖master报错的情况，解决：先解除master分支的保护权限，强制push之后再添加master的保护
 	`remote: You are not allowed to force push code to a protected branch on this project.`
 
+    ![解除某分支的保护权限](./git_master.png)
+
 	- 参考解决网址：https://github.com/LeachZhou/blog/issues/11
 
 * 查看远程分支和本地分支的对应关系
@@ -399,3 +401,13 @@ git reset --hard a1563bc
 
 * [阮一峰网站](http://www.ruanyifeng.com/blog/2018/10/git-internals.html)
 * [博客](https://www.jianshu.com/p/811b07b129e8)
+
+
+* 1、查看一下当前源
+yarn config get registry
+
+* 2、切换为淘宝源
+yarn config set registry https://registry.npm.taobao.org
+
+* 3、或者切换为自带的
+yarn config set registry https://registry.yarnpkg.com
