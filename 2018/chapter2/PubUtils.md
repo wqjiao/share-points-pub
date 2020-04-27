@@ -1232,3 +1232,27 @@ arr.forEach((item, i) => {
 
 console.log(str, arr);
 ```
+
+## 25. 获取文件扩展名
+
+```js
+/**
+ * @return 失去焦点，过滤非汉字字符
+ * @param [obj] e 输入的对象
+ * @param [obj] form 表单
+ * @param [String] type 表单字段
+ */
+export function isImageFile(fileUrl) {
+    return /(jpg$)|(jpeg$)|(png$)|(bmp$)|(gif$)/i.test(fileUrl.split('.').pop());
+}
+
+// 是否是视频文件
+export function isVideoFile(fileUrl) {
+    return /(mp4$)|(avi$)|(wmv$)|(rmvb$)/i.test(fileUrl.split('.').pop());
+}
+
+// 是否是word一类的文件
+export function isWordFile(fileUrl) {
+    return /(doc$)|(docx$)|(ppt$)|(xls$)|(xlsx$)/i.test(fileUrl.split('.').pop());
+}
+```
